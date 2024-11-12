@@ -19,7 +19,7 @@ A web service created to demonstrate the ability to use the WeatherStack API to 
 
 1. Clone the repository and navigate into it:
    
-    git clone <repository-url>
+    git clone https://github.com/EvaPiragyte/project1_weather_web.git
     cd <project1_weather_web>
     
 
