@@ -1,6 +1,6 @@
 # Weather Comparison Service
 
-A lightweight Node.js service that provides current weather data for cities and enables comparison of temperatures between two cities. This service leverages the WeatherStack API to fetch real-time weather information, available in both JSON and HTML formats.
+A web service created to demonstrate the ability to use the WeatherStack API to fetch and compare current weather information between cities. This service was implemented using Node.js and provides responses in both HTML and JSON formats. Users can control the functionality through URL parameters.
 
 ## Features
 
@@ -13,29 +13,29 @@ A lightweight Node.js service that provides current weather data for cities and 
 ### Prerequisites
 
 - **Node.js** - Download and install from [Node.js official website](https://nodejs.org/).
-- **WeatherStack API Key** - Sign up at [WeatherStack](https://weatherstack.com/) to obtain an API key.
+- **WeatherStack API Key** - Sign up at [WeatherStack](https://weatherstack.com/) to get an API key.
 
 ### Installation
 
 1. Clone the repository and navigate into it:
-    ```bash
+   
     git clone <repository-url>
-    cd <repository-name>
-    ```
+    cd <project1_weather_web>
+    
 
 2. Install required dependencies:
-    ```bash
+    
     npm install
-    ```
+   
 
 3. Set up your WeatherStack API Key:
    - Replace `WEATHERSTACK_API_KEY` in the code with your personal key.
-   - Alternatively, you can set it as an environment variable `WEATHERSTACK_API_KEY`.
+   
 
 4. Start the server:
-    ```bash
+   
     npm start
-    ```
+    
    Access the service locally at `http://localhost:3000`.
 
 ## API Endpoints
@@ -44,28 +44,26 @@ A lightweight Node.js service that provides current weather data for cities and 
 
 Retrieve current weather data for a specified city.
 
-- **Method**: `GET`
+
 - **Parameters**:
   - `city` (required): The name of the city.
   - `format` (optional): Response format - `json` or `html`. Defaults to `json`.
 - **Example**: 
-  - JSON format: `http://localhost:3000/weather?city=London`
-  - HTML format: `http://localhost:3000/weather?city=London&format=html`
+  - JSON format: `http://localhost:3000/weather?city=Coimbra`
+  - HTML format: `http://localhost:3000/weather?city=Coimbra&format=html`
 
 ### `/compareWeather`
 
 Compare weather data between two specified cities.
 
-- **Method**: `GET`
 - **Parameters**:
   - `city1` (required): The name of the first city.
   - `city2` (required): The name of the second city.
   - `format` (optional): Response format - `json` or `html`. Defaults to `json`.
 - **Example**: 
-  - JSON format: `http://localhost:3000/compareWeather?city1=London&city2=Paris`
-  - HTML format: `http://localhost:3000/compareWeather?city1=London&city2=Paris&format=html`
+  - JSON format: `http://localhost:3000/compareWeather?city1=Coimbra&city2=Vilnius`
+  - HTML format: `http://localhost:3000/compareWeather?city1=Coimbra&city2=Vilnius&format=html`
 
-## Public API Information
 
 ### WeatherStack API
 
@@ -76,11 +74,9 @@ The WeatherStack API provides real-time weather data, including temperature, hum
   - `access_key`: Your unique API key.
   - `query`: City name to fetch weather data for.
 - **Example Request**:
-    ```
-    http://api.weatherstack.com/current?access_key=YOUR_API_KEY&query=London
-    ```
 
-> **Note**: Keep your API key secure, especially when using a public repository.
+    http://api.weatherstack.com/current?access_key=YOUR_API_KEY&query=London
+ 
 
 ## Project Structure
 
@@ -90,19 +86,20 @@ The WeatherStack API provides real-time weather data, including temperature, hum
 
 ## Example Responses
 
-**Comparison JSON Response**:
-{
-  "city1": { "city": "London", "temperature": 15, "description": "Partly Cloudy", "wind_speed": 12, "humidity": 78 },
-  "city2": { "city": "Paris", "temperature": 17, "description": "Sunny", "wind_speed": 10, "humidity": 65 },
-  "comparisonResult": "London is colder than Paris by 2.0°C"
-}
-
 **Single City JSON Response**:
+
 {
   "city": "London",
   "temperature": 15,
   "description": "Partly Cloudy",
   "wind_speed": 12,
   "humidity": 78
-}`
+}
 
+**Comparison JSON Response**:
+
+{
+  "city1": { "city": "London", "temperature": 15, "description": "Partly Cloudy", "wind_speed": 12, "humidity": 78 },
+  "city2": { "city": "Paris", "temperature": 17, "description": "Sunny", "wind_speed": 10, "humidity": 65 },
+  "comparisonResult": "London is colder than Paris by 2.0°C"
+}
